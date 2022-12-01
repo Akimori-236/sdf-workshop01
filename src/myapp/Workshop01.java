@@ -34,12 +34,15 @@ public class Workshop01 {
                 }
                 // ADD
             } else if (input.startsWith("add")) {
-                String itemAdd = input.split(" ")[1];
-                if (cart.contains(itemAdd)) {
-                    System.err.printf("You have %s in your cart\n", itemAdd);
-                } else {
-                    cart.add(itemAdd);
-                    System.out.printf("%s added to cart\n", itemAdd);
+                input = input.replace(",", "");
+                String[] addItems = input.split(" ");
+                for (int i = 1; i < addItems.length; i++) {
+                    if (cart.contains(addItems[i])) {
+                        System.err.printf("You have %s in your cart\n", addItems[i]);
+                    } else {
+                        cart.add(addItems[i]);
+                        System.out.printf("%s added to cart\n", addItems[i]);
+                    }
                 }
             }
         }
