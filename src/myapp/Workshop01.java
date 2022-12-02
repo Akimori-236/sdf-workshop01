@@ -10,12 +10,14 @@ public class Workshop01 {
         // .trim()
         List<String> cart = new LinkedList<>();
         Console cons = System.console();
-        while (true) {
+        Boolean stop = false;
+
+        while (!stop) {
             String input = cons.readLine();
             input = input.trim().toLowerCase();
             // LIST
             if (input.equals("list")) {
-                if (cart.size() == 0) {
+                if (cart.size() <= 0) {
                     System.out.println("Your cart is empty");
                 } else {
                     for (int i = 0; i < cart.size(); i++) {
@@ -44,6 +46,8 @@ public class Workshop01 {
                         System.out.printf("%s added to cart\n", addItems[i]);
                     }
                 }
+            } else if (input.equals("stop")) {
+                stop = true;
             }
         }
     }
