@@ -26,7 +26,7 @@ public class Workshop01Switch {
                     }
                     break;
                 case "delete":
-                    Integer indexDel = (Integer.parseInt(input.split(" ")[1]));
+                    Integer indexDel = (Integer.parseInt(terms[1]));
                     if (indexDel > cart.size()) {
                         System.err.println("Incorrect item index");
                     } else {
@@ -37,13 +37,12 @@ public class Workshop01Switch {
                     break;
                 case "add":
                     input = input.replace(",", "");
-                    String[] addItems = input.split(" ");
-                    for (int i = 1; i < addItems.length; i++) {
-                        if (cart.contains(addItems[i])) {
-                            System.err.printf("You have %s in your cart\n", addItems[i]);
+                    for (int i = 1; i < terms.length; i++) {
+                        if (cart.contains(terms[i])) {
+                            System.err.printf("You have %s in your cart\n", terms[i]);
                         } else {
-                            cart.add(addItems[i]);
-                            System.out.printf("%s added to cart\n", addItems[i]);
+                            cart.add(terms[i]);
+                            System.out.printf("%s added to cart\n", terms[i]);
                         }
                     }
                     break;
